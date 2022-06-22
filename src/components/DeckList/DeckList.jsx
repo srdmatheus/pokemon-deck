@@ -1,5 +1,5 @@
 import { useEffect, useState } from 'react'
-import { api, imageUrl } from '../../services/api/api'
+import { api } from '../../services/api/api'
 import { Card } from '../Card/Card'
 import { DeckList } from './styles'
 
@@ -46,8 +46,6 @@ export function Deck() {
   const [pokemons, setPokemons] = useState([])
 
   useEffect(() => {
-    //const setId = `${imageUrl}${data.res}.png`
-
     fetch(api)
       .then(response => response.json())
       .then(data => {
