@@ -1,6 +1,6 @@
 import styled from 'styled-components'
 
-export const DeckList = styled.ul`
+export const Container = styled.ul`
   list-style: none;
   display: grid;
   grid-template-columns: repeat(4, 1fr);

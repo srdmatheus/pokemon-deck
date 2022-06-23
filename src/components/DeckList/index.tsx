@@ -2,10 +2,10 @@ import { useEffect, useState } from 'react'
 import { pokemonFetch } from '../../services/api'
 import { Pokemon } from '../../services/types'
 
-import { Card } from '../Card/Card'
-import { DeckList } from './styles'
+import Card from '../Card'
+import { Container } from './styles'
 
-export function Deck() {
+function DeckList() {
   const [pokemons, setPokemons] = useState<Pokemon[]>()
 
   async function getPokemons() {
@@ -18,7 +18,7 @@ export function Deck() {
   }, [])
 
   return (
-    <DeckList>
+    <Container>
       {pokemons &&
         pokemons.map((pokemon) => {
           const namePokemon = pokemon.name
@@ -29,6 +29,8 @@ export function Deck() {
             <Card name={namePokemon} id={namePokemon} image={imagePokemon} />
           )
         })}
-    </DeckList>
+    </Container>
   )
 }
+
+export default DeckList
