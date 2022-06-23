@@ -1,11 +1,13 @@
+import { Pokemon } from '../../services/types'
+import { imageUrl } from '../../utils/imgUrl'
 import { CardContent } from './styles'
-import { CardProps } from './types'
 
-function Card(props: CardProps) {
-  const { id, name, image } = props
+function Card({ name, url }: Pokemon) {
+  const id = url.replace(/[^0-9]/g, '').slice(1)
+
   return (
-    <CardContent key={id}>
-      <img src={image} alt={name} />
+    <CardContent>
+      <img src={imageUrl(id)} alt={name} />
       <span>{name}</span>
     </CardContent>
   )
