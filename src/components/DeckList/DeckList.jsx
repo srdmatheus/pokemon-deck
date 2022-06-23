@@ -16,7 +16,13 @@ export function Deck() {
     <DeckList>
       <>
         {pokemons.map(pokemon => {
-          return <Card {...pokemon} />
+          const namePokemon = pokemon.name
+          const idPokemon = pokemon.url.replace(/[^0-9]/g, '').slice(1)
+          const imagePokemon = `https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/${idPokemon}.png`
+
+          return (
+            <Card name={namePokemon} id={namePokemon} image={imagePokemon} />
+          )
         })}
       </>
     </DeckList>
