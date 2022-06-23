@@ -8,14 +8,14 @@ export function Deck() {
 
   useEffect(() => {
     fetch(api)
-      .then(response => response.json())
-      .then(data => setPokemons(data.results))
+      .then((response) => response.json())
+      .then((data) => setPokemons(data.results))
   }, [])
 
   return (
     <DeckList>
       <>
-        {pokemons.map(pokemon => {
+        {pokemons.map((pokemon) => {
           const namePokemon = pokemon.name
           const idPokemon = pokemon.url.replace(/[^0-9]/g, '').slice(1)
           const imagePokemon = `https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/${idPokemon}.png`
